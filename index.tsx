@@ -165,17 +165,6 @@ export const CountryPicker = ({
         });
     }, [searchValue]);
 
-    const modalPosition = animationDriver.interpolate({
-        inputRange: [0, 1],
-        outputRange: [height, 0],
-        extrapolate: 'clamp',
-    });
-
-    const modalBackdropFade = animationDriver.interpolate({
-        inputRange: [0, 0.5, 1],
-        outputRange: [0, 0.5, 1],
-        extrapolate: 'clamp'
-    });
 
     const openModal = () => {
         Animated.timing(animationDriver, {
@@ -236,7 +225,6 @@ export const CountryPicker = ({
                         style={[
                             {
                                 flex: 1,
-                                opacity: modalBackdropFade,
                                 backgroundColor: 'rgba(0,0,0,0.45)',
                                 position: 'absolute',
                                 width: '100%',
@@ -251,13 +239,6 @@ export const CountryPicker = ({
                     style={[
                         styles.modal,
                         style?.modal,
-                        {
-                            transform: [
-                                {
-                                    translateY: modalPosition,
-                                },
-                            ],
-                        },
                     ]}
                 >
                     <View
